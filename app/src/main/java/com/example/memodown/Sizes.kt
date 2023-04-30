@@ -12,16 +12,16 @@ public class Sizes {
     var minHeight: Int = 0
     var maxHeight: Int = 0
 
-    fun Sizes(options: Bundle){
+    fun Size(options: Bundle){
         minWidth = dp2Pixels(options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH))
         maxWidth = dp2Pixels(options.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH))
         minHeight = dp2Pixels(options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT))
         maxHeight = dp2Pixels(options.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
     }
 
-    public fun equals(obj: Objects): Boolean{
+    public fun equals(obj: Object): Boolean{
         if(obj is Sizes) {
-            var co: Sizes = obj
+            val co: Sizes = obj
             return ((minWidth == co.minWidth) && (maxWidth == co.maxWidth) && (minHeight == co.minHeight) && (maxHeight == co.maxHeight))
         }
         return false

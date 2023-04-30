@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.widget.RemoteViews
@@ -42,13 +43,17 @@ internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManage
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.new_app_widget)
 
-    var canvasBitmap: Bitmap = null
-    var canvas: Canvas = null
+    //var canvasBitmap: Bitmap = 0
+    // var canvas: Canvas = null
 
     var options: Bundle = appWidgetManager.getAppWidgetOptions(appWidgetId)
-    var newSizes: Sizes = Sizes(options)
+    val newSizes = Sizes.Size(options)
 
+    var canvasBitmap = Bitmap.createBitmap(newSizes.minWidth, newSizes.maxHeight, Bitmap.Config.ARGB_8888)
+    var canvas =Canvas(canvasBitmap)
+    canvas.drawColor(0, PorterDuff.Mode.CLEAR)
 
+    views.setImageViewBitmap(R.id.draw,canvasBitmap)
 
 
     // Instruct the widget manager to update the widget
