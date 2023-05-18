@@ -1,12 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Widget.Memodown.AppWidget.Container"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Memodown.AppWidgetContainer">
+    android:background="#00000000"
+    android:padding="@dimen/widget_margin" >
 
-    <ImageView
-        android:id="@+id/draw"
+    <ImageView android:id="@+id/draw"
         android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
