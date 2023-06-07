@@ -35,7 +35,7 @@ public class NewAppWidget extends AppWidgetProvider {
 
             webView.setBackgroundColor(Color.TRANSPARENT);
 
-            String unencodedHtml="<!DOCTYPE html><html><body>Hello World in HTML!</body></html>";
+            String unencodedHtml="<!DOCTYPE html><html><body style=\"color:white\"><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1> World in HTML!</body></html>";
             String encodedHtml=Base64.encodeToString(unencodedHtml.getBytes(), Base64.DEFAULT);
             webView.loadData(encodedHtml, "text/html", "base64");
 
@@ -85,7 +85,8 @@ public class NewAppWidget extends AppWidgetProvider {
             int[] idArray=new int[]{appWidgetId};
             intentUpdate.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, idArray);
 
-            final PendingIntent pendingUpdate=PendingIntent.getBroadcast(context, appWidgetId, intentUpdate, PendingIntent.FLAG_UPDATE_CURRENT);
+            final PendingIntent pendingUpdate=PendingIntent.getBroadcast(context, appWidgetId, intentUpdate, PendingIntent.FLAG_IMMUTABLE);
+            //Error
 
             // We could use an Alarm but Handlers are way more precise for sub-second schedulings
             Handler handler=new Handler();
