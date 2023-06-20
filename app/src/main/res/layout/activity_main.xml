@@ -32,12 +32,13 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="10dp"
         android:text="Save"
+        android:background="#00000000"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="@+id/titlebar"
         app:layout_constraintTop_toTopOf="parent"
