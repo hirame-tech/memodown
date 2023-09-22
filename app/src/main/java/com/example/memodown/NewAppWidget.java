@@ -17,6 +17,8 @@ import android.util.SparseArray;
 import android.webkit.WebView;
 import android.widget.RemoteViews;
 
+import org.markdownj.MarkdownProcessor;
+
 /**
  * Implementation of App Widget functionality.
  */
@@ -35,7 +37,8 @@ public class NewAppWidget extends AppWidgetProvider {
 
             webView.setBackgroundColor(Color.TRANSPARENT);
 
-            String unencodedHtml="<!DOCTYPE html><html><body style=\"color:white\"><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1> World in HTML!</body></html>";
+            MarkdownProcessor processor = new MarkdownProcessor();
+            String unencodedHtml= processor.markdown("- Heeeeeeee");
             String encodedHtml=Base64.encodeToString(unencodedHtml.getBytes(), Base64.DEFAULT);
             webView.loadData(encodedHtml, "text/html", "base64");
 
